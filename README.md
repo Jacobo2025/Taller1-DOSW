@@ -1,3 +1,3 @@
 # Taller1-DOSW
-# Integrantes
-Jacobo
+# Solución Reto 1
+
