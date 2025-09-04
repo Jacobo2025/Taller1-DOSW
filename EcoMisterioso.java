@@ -7,6 +7,8 @@ public class EcoMisterioso {
         StringBuilder repetido = new StringBuilder(IntStream.range(0,3).mapToObj(i -> palabra).collect(Collectors.joining("")));
 
 
+        StringBuffer sb = new StringBuffer(repetido);
+        sb.reverse();
         return sb.toString();
     }
 }
