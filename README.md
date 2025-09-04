@@ -9,11 +9,11 @@
 
 ![Imagen1 (1).png](Imagenes/Imagen1%20%281%29.png)
 
-- Código subido a la rama del buffer.
+- Ramas creadas.
 
-![Imagen2.png](Imagenes/Imagen2.png)
+![Captura de pantalla 2025-09-03 203450.png](Imagenes/Captura%20de%20pantalla%202025-09-03%20203450.png)
 
-- Conflicto al hacer el merge:
+- Al intentar juntar ambas ramas se genera un conflicto al hacer el merge:
 
 ![Captura de pantalla 2025-09-03 203751.png](Imagenes/Captura%20de%20pantalla%202025-09-03%20203751.png)
 
