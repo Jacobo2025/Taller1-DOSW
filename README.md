@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Hola
-=======
 # Solución Reto 6
 
 ### Uso de Map<String, Runnable>
