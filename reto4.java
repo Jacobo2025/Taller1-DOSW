@@ -12,3 +12,7 @@ public static Map<String, Integer> combinarMapas(Map<String, Integer> hashMap, M
     return resultado;
 }
 
+public static void imprimirClavesMayusculas(Map<String, Integer> mapa) {
+    mapa.forEach((clave, valor) -> System.out.println("Clave: " + clave.toUpperCase() + " | Valor: " + valor));
+}
+
