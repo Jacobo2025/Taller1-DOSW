@@ -1,7 +1,14 @@
-public static Map<String, Integer> crearHashMap(List<Map.Entry<String, Integer>> lista) {
-    Map<String, Integer> mapa = new HashMap<>();
+public static Map<String, Integer> crearHashTable(List<Map.Entry<String, Integer>> lista) {
+    Map<String, Integer> mapa = new Hashtable<>();
     for (Map.Entry<String, Integer> entry : lista) {
-        mapa.putIfAbsent(entry.getKey(), entry.getValue());
+        mapa.put(entry.getKey(), entry.getValue()); 
     }
     return mapa;
+}
+
+public static Map<String, Integer> combinarMapas(Map<String, Integer> hashMap, Map<String, Integer> hashtable) {
+    Map<String, Integer> resultado = new Hashtable<>(hashtable); // empieza con Hashtable
+    // Solo agrega los que no esten en el Hashtable
+    hashMap.forEach((clave, valor) -> resultado.putIfAbsent(clave, valor));
+    return resultado;
 }
