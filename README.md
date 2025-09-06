@@ -2,5 +2,4 @@
 # Integrantes:
 - Jacobo Diaz Alvarado
 - Maria Paula Rodriguez Muñoz
-### Reto 4
-![img](image.png)
+### Reto 5
