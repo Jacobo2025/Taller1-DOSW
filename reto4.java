@@ -29,3 +29,10 @@ public class Reto4 {
         mapa.forEach((clave, valor) -> System.out.println("Clave: " + clave.toUpperCase() + " | Valor: " + valor));
     }
 }
+
+public static void imprimirClavesOrdenadas(Map<String, Integer> mapa) {
+    mapa.entrySet()
+        .stream()
+        .sorted(Map.Entry.comparingByKey())
+        .forEach(entry -> System.out.println("Clave: " + entry.getKey() + " | Valor: " + entry.getValue()));
+}
