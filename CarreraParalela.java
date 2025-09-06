@@ -23,10 +23,10 @@ public class CarreraParalela {
         return resultado;
     }
 
-    // Función combinada: primer choque + segunda vuelta + tercer choque
+    // Función combinada: Primer choque + Segunda vuelta + Tercer choque
     public static Map<String, Object> analizarLista(List<Integer> numeros) {
         // Primer choque: máximo y mínimo + cantidad
-        int maximo = encontrarMaximo(numeros);             
+        int maximo = encontrarMaximo(numeros);
         Map<String, Integer> minYCant = minimoYCantidad(numeros);
         int cantidad = minYCant.get("cantidad");
 
@@ -53,12 +53,17 @@ public class CarreraParalela {
         return resultado;
     }
 
-    public static void main(String[] args) {
-        List<Integer> lista1 = Arrays.asList(3, 8, 1, 6, 10, 2);
-        List<Integer> lista2 = Arrays.asList(4, 7, 2, 5, 9);
+    // Gran Meta: analizar dos listas de números
+    public static Map<String, Object> analizarDosListas(List<Integer> lista1, List<Integer> lista2) {
+        Map<String, Object> res1 = analizarLista(lista1);
+        Map<String, Object> res2 = analizarLista(lista2);
 
-        System.out.println("Lista 1: " + analizarLista(lista1));
-        System.out.println("Lista 2: " + analizarLista(lista2));
+        Map<String, Object> resultado = new HashMap<>();
+        resultado.put("Lista1", res1);
+        resultado.put("Lista2", res2);
+
+        return resultado;
     }
 }
+
 
