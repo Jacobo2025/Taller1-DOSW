@@ -12,3 +12,10 @@ public static Map<String, Integer> combinarMapas(Map<String, Integer> hashMap, M
     hashMap.forEach((clave, valor) -> resultado.putIfAbsent(clave, valor));
     return resultado;
 }
+
+public static void imprimirClavesOrdenadas(Map<String, Integer> mapa) {
+    mapa.entrySet()
+        .stream()
+        .sorted(Map.Entry.comparingByKey())
+        .forEach(entry -> System.out.println("Clave: " + entry.getKey() + " | Valor: " + entry.getValue()));
+}
