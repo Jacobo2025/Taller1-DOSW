@@ -24,4 +24,8 @@ public class Reto4 {
         hashtable.forEach((clave, valor) -> resultado.put(clave, valor)); // sobrescribe con Hashtable
         return resultado;
     }
+
+    public static void imprimirClavesMayusculas(Map<String, Integer> mapa) {
+        mapa.forEach((clave, valor) -> System.out.println("Clave: " + clave.toUpperCase() + " | Valor: " + valor));
+    }
 }
