@@ -1,14 +1,27 @@
-public static Map<String, Integer> crearHashTable(List<Map.Entry<String, Integer>> lista) {
-    Map<String, Integer> mapa = new Hashtable<>();
-    for (Map.Entry<String, Integer> entry : lista) {
-        mapa.put(entry.getKey(), entry.getValue()); 
-    }
-    return mapa;
-}
+import java.util.*;
+import java.util.stream.*;
 
-public static Map<String, Integer> combinarMapas(Map<String, Integer> hashMap, Map<String, Integer> hashtable) {
-    Map<String, Integer> resultado = new Hashtable<>(hashtable); // empieza con Hashtable
-    // Solo agrega los que no esten en el Hashtable
-    hashMap.forEach((clave, valor) -> resultado.putIfAbsent(clave, valor));
-    return resultado;
+public class Reto4 {
+
+    public static Map<String, Integer> crearHashMap(List<Map.Entry<String, Integer>> lista) {
+        Map<String, Integer> mapa = new HashMap<>();
+        for (Map.Entry<String, Integer> entry : lista) {
+            mapa.putIfAbsent(entry.getKey(), entry.getValue());
+        }
+        return mapa;
+    }
+
+    public static Map<String, Integer> crearHashTable(List<Map.Entry<String, Integer>> lista) {
+        Map<String, Integer> mapa = new Hashtable<>();
+        for (Map.Entry<String, Integer> entry : lista) {
+            mapa.put(entry.getKey(), entry.getValue());
+        }
+        return mapa;
+    }
+
+    public static Map<String, Integer> combinarMapas(Map<String, Integer> hashMap, Map<String, Integer> hashtable) {
+        Map<String, Integer> resultado = new HashMap<>(hashMap); // comienza con HashMap
+        hashtable.forEach((clave, valor) -> resultado.put(clave, valor)); // sobrescribe con Hashtable
+        return resultado;
+    }
 }
