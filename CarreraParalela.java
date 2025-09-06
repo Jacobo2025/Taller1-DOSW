@@ -3,18 +3,18 @@ import java.util.stream.*;
 
 public class CarreraParalela {
 
-    // Carril 1: máximo
+    // Carril 1: función para encontrar el máximo
     public static int encontrarMaximo(List<Integer> numeros) {
         return numeros.stream()
                       .max(Integer::compareTo)
                       .orElseThrow(() -> new IllegalArgumentException("Lista vacía"));
     }
 
-    // Carril 2: mínimo y cantidad
+    // Carril 2: función para encontrar el mínimo y cantidad de elementos
     public static Map<String, Integer> minimoYCantidad(List<Integer> numeros) {
         int minimo = numeros.stream()
                             .min(Integer::compareTo)
-                            .get();
+                            .orElseThrow(() -> new IllegalArgumentException("Lista vacía"));
         int cantidad = numeros.size();
 
         Map<String, Integer> resultado = new HashMap<>();
@@ -23,32 +23,42 @@ public class CarreraParalela {
         return resultado;
     }
 
-    // Función que combina ambos resultados
+    // Función combinada: primer choque + segunda vuelta + tercer choque
     public static Map<String, Object> analizarLista(List<Integer> numeros) {
-        int maximo = encontrarMaximo(numeros);
+        // Primer choque: máximo y mínimo + cantidad
+        int maximo = encontrarMaximo(numeros);             
+        Map<String, Integer> minYCant = minimoYCantidad(numeros);
         int cantidad = minYCant.get("cantidad");
-    //Segunda Vuelta
+
+        // Segunda vuelta
         boolean esMultiplo2 = (maximo % 2 == 0) ? true : false; // Carril 1
         boolean esDivisor2 = (2 % maximo == 0) ? true : false;  // Carril 2
-    //Tercer choque
+
+        // Tercer choque
         boolean cantidadPar = (cantidad % 2 == 0) ? true : false;  // Carril 1
         boolean cantidadImpar = (cantidad % 2 != 0) ? true : false; // Carril 2
 
-
-        Map<String, Integer> minYCant = minimoYCantidad(numeros);
-
+        // Resultado final
         Map<String, Object> resultado = new HashMap<>();
         resultado.put("maximo", maximo);
         resultado.put("minimo", minYCant.get("minimo"));
-        resultado.put("cantidad", minYCant.get("cantidad"));
+        resultado.put("cantidad", cantidad);
 
         resultado.put("esMultiplo2", esMultiplo2);
         resultado.put("esDivisor2", esDivisor2);
 
         resultado.put("cantidadPar", cantidadPar);
         resultado.put("cantidadImpar", cantidadImpar);
+
         return resultado;
- 
     }
 
+    public static void main(String[] args) {
+        List<Integer> lista1 = Arrays.asList(3, 8, 1, 6, 10, 2);
+        List<Integer> lista2 = Arrays.asList(4, 7, 2, 5, 9);
+
+        System.out.println("Lista 1: " + analizarLista(lista1));
+        System.out.println("Lista 2: " + analizarLista(lista2));
+    }
 }
+
