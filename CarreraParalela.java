@@ -26,6 +26,15 @@ public class CarreraParalela {
     // Función que combina ambos resultados
     public static Map<String, Object> analizarLista(List<Integer> numeros) {
         int maximo = encontrarMaximo(numeros);
+        int cantidad = minYCant.get("cantidad");
+    //Segunda Vuelta
+        boolean esMultiplo2 = (maximo % 2 == 0) ? true : false; // Carril 1
+        boolean esDivisor2 = (2 % maximo == 0) ? true : false;  // Carril 2
+    //Tercer choque
+        boolean cantidadPar = (cantidad % 2 == 0) ? true : false;  // Carril 1
+        boolean cantidadImpar = (cantidad % 2 != 0) ? true : false; // Carril 2
+
+
         Map<String, Integer> minYCant = minimoYCantidad(numeros);
 
         Map<String, Object> resultado = new HashMap<>();
@@ -33,7 +42,13 @@ public class CarreraParalela {
         resultado.put("minimo", minYCant.get("minimo"));
         resultado.put("cantidad", minYCant.get("cantidad"));
 
+        resultado.put("esMultiplo2", esMultiplo2);
+        resultado.put("esDivisor2", esDivisor2);
+
+        resultado.put("cantidadPar", cantidadPar);
+        resultado.put("cantidadImpar", cantidadImpar);
         return resultado;
+ 
     }
 
 }
