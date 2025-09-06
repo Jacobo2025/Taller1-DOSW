@@ -33,14 +33,40 @@
    
 - HashMap no es sincronizado, permite una clave null y múltiples valores null, y suele ser más rápido en la práctica. En cambio, HashTable es sincronizado, no permite claves ni valores null y es una implementación más antigua.
   
-7.	Qué ventajas tiene Collectors.toMap() frente a un bucle tradicional para llenar un mapa?
+7. Ventajas de Collectors.toMap() frente a un bucle tradicional:
+- Permite construir mapas de forma declarativa y concisa usando streams.  
+- Maneja automáticamente la combinación de valores en caso de claves duplicadas.  
+- Facilita operaciones funcionales como filtrado, mapeo y ordenamiento en una sola línea.  
+- Mejora la legibilidad y reduce errores de manejo manual del mapa.  
 
-8.	Si usas List con objetos y luego aplicas stream().map() que tipo de operación estas haciendo?
+8. Operación de stream().map() sobre una lista de objetos:**  
+- Es una operación de transformaciónque toma cada elemento de la lista y lo convierte en otro valor según la función que se pase a `map()`.  
+- Retorna un Stream con los elementos transformados.  
 
-9.	Que hace el método stream().filter() y que retorna?
+9. Qué hace stream().filter() y qué retorna:
+- Filtra los elementos de un stream según una condición booleana.  
+- Retorna un nuevo Stream con solo los elementos que cumplen la condición.  
 
-10.	 Describe el paso a paso de cómo crear una rama desde develop si es una funcionalidad nueva.
+10. Paso a paso para crear una rama desde develop para una nueva funcionalidad:
 
-11.	¿Cuál es la diferencia entre crear una rama con git branch y con git checkout -b?
+    1. Cambiar a la rama develop:  
+        ```bash
+        git checkout develop
 
-12.	¿Por qué es recomendable crear ramas feature/ para nuevas funcionalidades en lugar de trabajar en main directamente?
+    2. Traer los últimos cambios de develop:
+        ```bash
+        git pull origin develop
+
+    3. Crear y cambiar a la nueva rama feature:
+        ```bash
+        git checkout -b feature/nueva-funcionalidad
+### 11. Diferencia entre git branch y git checkout -b
+- git branch <nombre>: crea la rama pero no cambia a ella.  
+- git checkout -b <nombre>: crea la rama y cambia automáticamente a ella.  
+
+### 12. Por qué crear ramas feature para nuevas funcionalidades
+- Mantiene la rama main limpia y estable.  
+- Permite trabajar de forma aislada sin afectar a otros desarrolladores.  
+- Facilita revisiones, pruebas y merges controlados.  
+- Reduce riesgos de conflictos en el código principal.
+
